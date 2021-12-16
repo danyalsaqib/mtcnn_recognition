@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-import pandas as pd
 import json
 import os
 from mtcnn_ort import MTCNN
@@ -25,19 +24,30 @@ src = np.array([
 src[:, 0] += 8.0
 
 tform = trans.SimilarityTransform()
+distance_threshold = 0.5
 
+file_batch_dict = {
+    "frame_1" : "images/1.jpg",
+    "frame_2" : "images/2.jpg",
+    "frame_3" : "images/3.jpg",
+    "frame_4" : "images/4.jpg",
+    "frame_5" : "images/5.jpg"
+}
 
-"""
-def face_infer(recieved_image_path):
-    # images_path is the list containing 
-    images_path = json.load(recieved_image_path)
-    for image_path in images_path[]:
-"""
+def face_infer_batch(batch_dict):
+    print("Length : ", len(batch_dict))
+    results = {}
+
+    for image_path in batch_dict:
+        results[image_path] = infer_image(batch_dict[image_path])
+    print(results)
+
 
 def infer_image(img_path):
 
     image = cv2.cvtColor(cv2.imread(img_path), cv2.COLOR_BGR2RGB)
     faces = detector.detect_faces_raw(image)
+    celeb = []
     #detection_results_show(img_path, faces)
 
     for i in range(len(faces[0])):
@@ -61,35 +71,36 @@ def infer_image(img_path):
                 blob /= 128
                 result = session.run([output_name], {input_name: blob})
                 dictionary = {'names': "bajwa sb", 'embeddings': result[0][0].tolist()}
-                
-                print("Embedding successfully obtained. Shape: ", len(result[0][0]))
-                return result[0][0]
 
-                #with open('dictionary.json', 'w') as handle:
-                #    json.dump(dictionary, handle)
+                f = open('dict_arcface.json')
+                data = json.load(f)
+                #print("Length of dict : ", len(data["embeddings"]))
+                distance = 1000
+                best_distance = 1
+                best_index = -1
+                for j in range(len(data["embeddings"])):
+                    #print("Embedding : ", data["embeddings"][j])
+                    distance = findCosineDistance(result[0][0], data["embeddings"][j])
+                    if (distance < distance_threshold) and (distance < best_distance):
+                        best_index = j
+                        best_distance = distance
+                        print("Best Distance : ", best_distance)
 
-                #distance = findCosineDistance(result[0][0], bajwa)
-                #print(distance)
+                if (best_index != -1):
+                    celeb += [data["names"][best_index]]
+                    
+ 
 
+                f.close()
 
             else:
                 print("Invalid Pose")
-                return -1
         else:
             print("Image size is small")
-            return -1
-
-def findCosineDistance(source_representation, test_representation):
-    #print("Source Representation: ", source_representation.shape)
-    #print("Test Representation: ", test_representation.shape)
-    a = np.matmul(np.transpose(source_representation), test_representation)
-    print("a: ", a.shape)
-    b = np.sum(np.multiply(source_representation, source_representation))
-    c = np.sum(np.multiply(test_representation, test_representation))
-    return 1 - (a / (np.sqrt(b) * np.sqrt(c)))
+    print(celeb)
+    return celeb
 
 if __name__ == '__main__':
     detector = MTCNN()
-    test_pic = "Aamir Hussain Liaquat_img_1.jpg"
-    infer_image(test_pic)
-    
+    test_pic = "images/image_1.jpg"
+    face_infer_batch(file_batch_dict)
