@@ -27,11 +27,11 @@ tform = trans.SimilarityTransform()
 distance_threshold = 0.5
 
 file_batch_dict = {
-    "frame_1" : "images/1.jpg",
-    "frame_2" : "images/2.jpg",
-    "frame_3" : "images/3.jpg",
-    "frame_4" : "images/4.jpg",
-    "frame_5" : "images/5.jpg"
+    "frame_1" : "images/image_1.jpeg",
+    "frame_2" : "images/image_2.jpeg",
+    "frame_3" : "images/image_3.jpeg",
+    "frame_4" : "images/image_4.jpeg",
+    "frame_5" : "images/image_5.jpeg"
 }
 
 def face_infer_batch(batch_dict):
@@ -41,6 +41,7 @@ def face_infer_batch(batch_dict):
     for image_path in batch_dict:
         results[image_path] = infer_image(batch_dict[image_path])
     print(results)
+    return results
 
 
 def infer_image(img_path):
@@ -102,5 +103,5 @@ def infer_image(img_path):
 
 if __name__ == '__main__':
     detector = MTCNN()
-    test_pic = "images/image_1.jpg"
+    test_pic = "images/image_1.jpeg"
     face_infer_batch(file_batch_dict)
