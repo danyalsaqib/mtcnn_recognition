@@ -28,6 +28,20 @@ python3 face_main.py
 
 As an example, by default, the inference runs on a sample image. The inference is essentially done by calling the infer_image function, and passing it a path to an image. As an example, it runs:
 ```
-test_pic = "Aamir Hussain Liaquat_img_1.jpg"
+test_pic = "image_1.jpeg"
 infer_image(test_pic)
+```
+The 'face_infer_batch' takes a dictionary containing names, and respective paths of images. It returns a dictionary, containing the recognized face in each image. An example code is something like this:
+```
+if __name__ == '__main__':
+    
+    file_batch_dict = {
+      "frame_1" : "images/image_1.jpeg",
+      "frame_2" : "images/image_2.jpeg",
+      "frame_3" : "images/image_3.jpeg",
+      "frame_4" : "images/image_4.jpeg",
+      "frame_5" : "images/image_5.jpeg"
+    }
+    
+    face_infer_batch(file_batch_dict)
 ```
