@@ -28,6 +28,6 @@ python3 face_main.py
 
 As an example, by default, the inference runs on a sample image. The inference is essentially done by calling the infer_image function, and passing it a path to an image. As an example, it runs:
 ```
-test_pic = "Aamir Hussain Liaquat_img_1.jpg"
+test_pic = "image_1.jpeg"
 infer_image(test_pic)
 ```
