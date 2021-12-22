@@ -1,6 +1,7 @@
 FROM python
 
 RUN apt-get update && \
+    python -m pip install --upgrade pip && \
     pip install opencv-python && \
     apt-get install ffmpeg libsm6 libxext6  -y && \
     python -m pip install -U scikit-image && \
