@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/tensorflow:21.11-tf2-py3
+FROM python
 
 RUN apt-get update && \
     pip install opencv-python && \
