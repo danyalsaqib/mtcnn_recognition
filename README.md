@@ -1,7 +1,13 @@
 # mtcnn_recognition
+
+## Downloading the ArcFace Model
 The link to the arcface ONNX model used can be found at: https://drive.google.com/file/d/16aJ_uiDWeggv0V7i9VBSzrdIOUhK84Qr/view?usp=sharing
 
-This model should be placed in 'face_recognition/models/'.
+This model should be placed in 'face_recognition/models/'. Alternatively, you can run the script 'models/get_model.py' using the following commands:
+```
+cd models
+python get_model.py
+```
 
 ## Dockerfile
 The dockerfile contains instructions to first install necessary libraries, and then copy the 'retinaface_functions/' directory into a local docker directory using the command `COPY face_recognition /face_recognition`. The docker uses the tensorflow container as its parent, given by `FROM nvcr.io/nvidia/tensorflow:21.11-tf2-py3`
