@@ -3,7 +3,7 @@
 ## Downloading the ArcFace Model
 The link to the arcface ONNX model used can be found at: https://drive.google.com/file/d/16aJ_uiDWeggv0V7i9VBSzrdIOUhK84Qr/view?usp=sharing
 
-This model should be placed in 'face_recognition/models/'. Alternatively, you can run the script 'models/get_model.py' using the following commands to automatically download the model:
+This model should be placed in 'face_recognition/models/'. Alternatively, you can run the script 'face_recognition/models/get_model.py' using the following commands to automatically download the model:
 ```
 python models/get_model.py
 ```
