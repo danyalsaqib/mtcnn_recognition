@@ -2,6 +2,7 @@ FROM ubuntu
 
 RUN add-apt-repository ppa:deadsnakes/ppa && \
     apt-get update && \
+    apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget && \
     apt install python3.7 && \
     python -m pip install --upgrade pip && \
     pip install gdown && \
