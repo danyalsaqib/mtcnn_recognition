@@ -13,7 +13,7 @@ RUN apt-get update -y && \
     pip install typing-extensions==3.6.2.1 && \
     pip install numpy protobuf==3.16.0 && \
     pip install onnx && \
-    pip install onnxruntime && \
+    pip install onnxruntime-gpu==1.9.0 && \
     pip install mtcnn-onnxruntime
 
 COPY face_recognition /face_recognition
