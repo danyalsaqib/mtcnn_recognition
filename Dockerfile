@@ -1,6 +1,7 @@
 FROM ubuntu
 
-RUN apt-get update && \
+RUN add-apt-repository ppa:deadsnakes/ppa && \
+    apt-get update && \
     apt install python3.7 && \
     python -m pip install --upgrade pip && \
     pip install gdown && \
