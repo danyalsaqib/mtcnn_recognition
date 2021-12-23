@@ -9,6 +9,7 @@ RUN add-apt-repository ppa:deadsnakes/ppa && \
     pip install opencv-python && \
     apt-get install ffmpeg libsm6 libxext6  -y && \
     python -m pip install -U scikit-image && \
+    pip install pandas && \
     pip install cmake && \
     pip install six && \
     pip install typing-extensions==3.6.2.1 && \
