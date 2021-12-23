@@ -1,4 +1,4 @@
-FROM python
+FROM python:3.7
 
 RUN apt-get update && \
     python -m pip install --upgrade pip && \
