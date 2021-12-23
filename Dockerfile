@@ -2,7 +2,6 @@ FROM python:3.7
 
 RUN apt-get update && \
     python -m pip install --upgrade pip && \
-    python --version && \
     pip install gdown && \
     pip install opencv-python && \
     apt-get install ffmpeg libsm6 libxext6  -y && \
