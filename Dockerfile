@@ -1,7 +1,7 @@
 FROM ubuntu
 
 RUN apt-get update -y && \
-    apt-get install -y python && \
+    apt-get install -y python3 && \
     python -m pip install --upgrade pip && \
     pip install gdown && \
     pip install opencv-python && \
