@@ -1,6 +1,7 @@
-FROM python:3.7
+FROM ubuntu
 
 RUN apt-get update && \
+    apt install python3.7 && \
     python -m pip install --upgrade pip && \
     pip install gdown && \
     pip install opencv-python && \
