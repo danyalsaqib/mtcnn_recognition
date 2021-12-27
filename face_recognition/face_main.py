@@ -10,7 +10,7 @@ import onnxruntime
 detector = MTCNN()
 
 # Initializing the recognizer
-model_path = "models/arcface.onnx"
+model_path = "face_recognition/models/arcface.onnx"
 session = onnxruntime.InferenceSession(model_path, None)
 input_name = session.get_inputs()[0].name
 output_name = session.get_outputs()[0].name
