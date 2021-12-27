@@ -20,3 +20,4 @@ RUN apt-get update -y && \
 
 COPY face_recognition /face_recognition
 CMD ["python3", "/face_recognition/face_main.py"]
+CMD ["sh","-c","python3 /face_recognition/models/get_model.py && python3 /face_recognition/face_main.py"]
