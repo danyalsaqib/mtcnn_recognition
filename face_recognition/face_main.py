@@ -10,7 +10,8 @@ import onnxruntime
 detector = MTCNN()
 
 # Initializing the recognizer
-model_path = "face_recognition/models/arcface.onnx"
+os.chdir("face_recognition")
+model_path = "models/arcface.onnx"
 session = onnxruntime.InferenceSession(model_path, None)
 input_name = session.get_inputs()[0].name
 output_name = session.get_outputs()[0].name
@@ -27,11 +28,11 @@ tform = trans.SimilarityTransform()
 distance_threshold = 0.5
 
 file_batch_dict = {
-    "frame_1" : "face_recognition/images/image_1.jpeg",
-    "frame_2" : "face_recognition/images/image_2.jpeg",
-    "frame_3" : "face_recognition/images/image_3.jpeg",
-    "frame_4" : "face_recognition/images/image_4.jpeg",
-    "frame_5" : "face_recognition/images/image_5.jpeg"
+    "frame_1" : "images/image_1.jpeg",
+    "frame_2" : "images/image_2.jpeg",
+    "frame_3" : "images/image_3.jpeg",
+    "frame_4" : "images/image_4.jpeg",
+    "frame_5" : "images/image_5.jpeg"
 }
 
 def face_infer_batch(batch_dict):
