@@ -19,3 +19,4 @@ RUN apt-get update -y && \
     pip install mtcnn-onnxruntime
 
 COPY face_recognition /face_recognition
+CMD ["python3", "/face_recognition/face_main.py"]
