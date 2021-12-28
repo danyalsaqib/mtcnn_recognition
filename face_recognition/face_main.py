@@ -31,8 +31,7 @@ file_batch_dict = {
     "frame_1" : "images/image_1.jpeg",
     "frame_2" : "images/image_2.jpeg",
     "frame_3" : "images/image_3.jpeg",
-    "frame_4" : "images/image_4.jpeg",
-    "frame_5" : "images/image_5.jpeg"
+    "frame_4" : "images/image_4.jpeg"
 }
 
 def face_infer_batch(batch_dict):
