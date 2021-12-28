@@ -1,0 +1,7 @@
+echo ****** face_1 - Start CI/CD Pipeline ******
+pip install filelock
+python3 face_recognition/models/get_model.py
+sudo docker image rm mtcnn_pipeline:single
+sudo docker build -t mtcnn_pipeline:single .
+ls
+sudo docker run --gpus all --rm -v $(pwd)/face_recognition:/face_recognition/mounted mtcnn_pipeline:single
