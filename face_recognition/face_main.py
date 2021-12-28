@@ -105,5 +105,5 @@ if __name__ == '__main__':
     detector = MTCNN()
     test_pic = "images/image_1.jpeg"
     output_dict = face_infer_batch(file_batch_dict)
-    with open('output_dict.json', 'w') as f:
+    with open('mounted/output_dict.json', 'w') as f:
         json.dump(output_dict, f)
