@@ -5,7 +5,7 @@ The link to the arcface ONNX model used can be found at: https://drive.google.co
 
 This model should be placed in 'face_recognition/models/'. Alternatively, you can run the script 'face_recognition/models/get_model.py' using the following commands to automatically download the model:
 ```
-python models/get_model.py
+python3 face_recognition/models/get_model.py
 ```
 
 ## Dockerfile
